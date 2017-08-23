@@ -1,0 +1,6 @@
+- name: Install tor proxy and exit node
+  hosts: all
+  remote_user: pi
+  become: yes
+  roles:
+    - { role: base, tags: ['base']}
