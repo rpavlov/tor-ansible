@@ -1,0 +1,2 @@
+- name: copy dhcpcd.conf for a static IP
+  copy: src=dhcpcd.conf dest=/etc/dhcpcd.conf
