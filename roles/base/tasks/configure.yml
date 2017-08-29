@@ -2,13 +2,13 @@
   template: src=interfaces.j2 dest=/etc/network/interfaces
 
 - name: Copy the dhcpd.conf
-  template: src=dhcpd.conf.j2 dest=/etc/dhcpd.conf
+  copy: src=dhcpd.conf dest=/etc/dhcpd.conf
 
 - name: Copy the isc-dhcp-server config
   copy: src=isc-dhcp-server dest=/etc/default/isc-dhcp-server
 
 - name: Copy the hostapd config
-  copy: src=hostapd.conf dest=/etc/hostapd/hostapd.conf
+  template: src=hostapd.conf.j2 dest=/etc/hostapd/hostapd.conf
 
 - name: Setup the hostapd.conf
   copy: src=hostapd dest=/etc/default/hostapd
