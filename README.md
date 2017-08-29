@@ -15,10 +15,11 @@ Prerequisites
 * Install Python 2.7
 * Connect the Pi to a router with an ethernet cable and obtain an ip. Enter it in the ```inventory``` file. You may
 give wlan1 a static ip later, if you wish to ssh in.
-* Enter your network ssid and password in ```groups_vars/all/vars.yml```.
+* In```groups_vars/all/vars.yml``` enter the ssid and passphrase for your router, in addition to a desired ssid and
+passphrase for your new AP.
 
 Usage
 -----
 1. ```make dependencies``` to install ansible, and other python packages.
 2. ```make run``` to execute the scripts
-3. ```vagrant provision``` for a virtual machine, if you wish.
+3. Find the ssid name and connect with your chosen passphrase.
