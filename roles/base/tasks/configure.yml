@@ -25,7 +25,11 @@
 - service:
     name: hostapd
     state: started
-    
+
 - service:
     name: isc-dhcp-server
+    state: started
+
+- service:
+    name: tor
     state: started
