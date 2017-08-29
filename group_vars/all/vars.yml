@@ -1,0 +1,4 @@
+ssid: your-network-ssid
+psk: your-network-password
+ap_ssid: your-desired-ap-ssid
+ap_passphrase: your-desired-access-point-passphrase

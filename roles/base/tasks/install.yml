@@ -1,4 +1,8 @@
 - name: Install tor packages
-  apt: name={{ item }} state=present update_cache=true
+  apt: name={{ item }} state=present update_cache=yes
   with_items:
+    - hostapd
+    - isc-dhcp-server
     - tor
+    - rsync
+    - iptables-persistent

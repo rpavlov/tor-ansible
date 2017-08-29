@@ -1,2 +1,31 @@
-- name: copy dhcpcd.conf for a static IP
-  copy: src=dhcpcd.conf dest=/etc/dhcpcd.conf
+- name: Setup the wifi interfaces
+  template: src=interfaces.j2 dest=/etc/network/interfaces
+
+- name: Copy the dhcpd.conf
+  template: src=dhcpd.conf.j2 dest=/etc/dhcpd.conf
+
+- name: Copy the isc-dhcp-server config
+  copy: src=isc-dhcp-server dest=/etc/default/isc-dhcp-server
+
+- name: Copy the hostapd config
+  copy: src=hostapd.conf dest=/etc/hostapd/hostapd.conf
+
+- name: Setup the hostapd.conf
+  copy: src=hostapd dest=/etc/default/hostapd
+
+- name: Enable Ipv4 forwarding
+  copy: src=sysctl.conf dest=/etc/sysctl.conf
+
+- name: Copy torrc config file
+  copy: src=torrc dest=/etc/tor/torrc
+
+- name: Copy NAT forwarding rules
+  copy: src=rules.v4 dest=/etc/iptables/rules.v4
+
+- service:
+    name: hostapd
+    state: started
+    
+- service:
+    name: isc-dhcp-server
+    state: started
